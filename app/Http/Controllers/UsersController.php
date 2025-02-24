@@ -15,6 +15,12 @@ use Tymon\JWTAuth\Facades\JWTAuth;
  
 class UsersController extends Controller
 {
+
+    public function index()
+    {
+        $users = User::get();
+        return view('index', ['users' => $users]);
+    }
      public function register(Request $request)
     {
          $validator = Validator::make($request->all(), [
